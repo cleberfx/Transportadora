@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="box col-md-12">
-                      <h3>Resultado rastreio</h3>   
+                      <h3>Resultado do Rastreio</h3>   
                <%
                    CharSequence pesq = request.getParameter("pesquisa");
                    int resultados= 0;
