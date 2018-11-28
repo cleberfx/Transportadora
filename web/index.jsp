@@ -21,8 +21,8 @@
                 <input type="text"  name="pesquisa" placeholder="Codigo da encomenda">
                 <span>
 
-                    <button type="submit"> Rastreie</button>
-
+                    
+<button type="submit" name="acao" value="rastrear"  id="rastrear" >Rastreie</button>
                 </span>
 
             </form>

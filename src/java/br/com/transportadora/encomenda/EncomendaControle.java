@@ -83,69 +83,29 @@ public class EncomendaControle extends HttpServlet {
              {
        response.setContentType("text/html;charset=UTF-8");
        try (PrintWriter out = response.getWriter()) {
-//      String id  = request.getParameter("id");
-//int id = Integer.parseInt(request.getParameter("id"));
-      String nome = request.getParameter("nome");
-      float prvenda= Float.parseFloat(request.getParameter("preco_venda"));
-      float prcompra= Float.parseFloat(request.getParameter("preco_compra"));
-      int quantid  = Integer.parseInt(request.getParameter("quant"));
-      String fornec = request.getParameter("fornecedor");
-      String foto = request.getParameter("fotoproduto");
-      String categoria = request.getParameter("categoria");
-      String cor = request.getParameter("cor");
-      String material = request.getParameter("material");
-      String tamanho = request.getParameter("tamanho");
+
+      int id = Integer.parseInt(request.getParameter("id"));
+      
       
       String  acao = request.getParameter("acao");
       
-      ProdutoModelo produtomod = new ProdutoModelo();
-//      if(id!=""){
-//      produtomod.setId(Integer.parseInt(id));}
-//      produtomod.setId(id);
-      produtomod.setNome(nome);
-      produtomod.setPrecoVenda(prvenda);
-      produtomod.setPrecoCompra(prcompra);
-      produtomod.setQuantidade(quantid);
-      produtomod.setFornecedor(fornec);
-      produtomod.setFoto(foto);
-      produtomod.setCategoria(categoria);
-      produtomod.setCor(cor);
-      produtomod.setMaterial(material);
-      produtomod.setTamanho(tamanho);
+      EncomendaModelo mod = new EncomendaModelo();
+
+      mod.setId_encomenda(id);
+
       
       
-      ProdutoDAO produtodao = new ProdutoDAO();   
       
-        try {
-            if(acao.equals("cadastrar")) {
-               
-                  produtodao.Salvar(produtomod);
-                  out.println("<h1>Produto Cadastrado </h1>");
-                  out.println("<a href=crud_produtoview.jsp>Voltar para o Cadastro de Produtos</a>");
-              
-          }
-              int id = Integer.parseInt(request.getParameter("id"));
-              produtomod.setId(id);
-            if(acao.equals("editar")){
-            produtodao.Editar(produtomod);
-            out.println("<h1>Produto Editado </h1>");
-            out.println("<a href=crud_produtoview.jsp>Voltar para o Cadastro de Produtos</a>");
-            }
-            if(acao.equals("excluir")){
-            produtodao.Excluir(produtomod);
-            out.println("<h1>Produto Excluido</h1>");
-            out.println("<a href=crud_produtoview.jsp>Voltar para o Cadastro de Produtos</a>");
-            }
-            if(acao.equals("salvarfoto")){
-            produtodao.SalvarFoto(produtomod);
-            out.println("<h1>Foto Salva</h1>");
-            out.println("<a href=crud_produtoview.jsp>Voltar para o Cadastro de Produtos</a>");
-            }
-            
-//            response.sendRedirect("produtoview.jsp");
-        } catch (SQLException ex) {
-            out.println("<h1>Erro no Cadastro</h1>" + ex);
-        }
+      EncomendaDAO dao = new EncomendaDAO();   
+      
+      if(acao.equals("rastrear")) {
+          
+          dao.buscaStatus(id);
+          response.sendRedirect("resultado_rastreio.jsp");
+          out.println("<h1>Produto Cadastrado </h1>");
+          out.println("<a href=index.jsp>Voltar para a Pagina Inicial</a>");
+          
+      }
       
        } 
     

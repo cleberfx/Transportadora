@@ -11,7 +11,9 @@ package br.com.transportadora.encomenda;
  */
 public class EncomendaModelo {
     
-private int id_encomenda;    
+private int id_encomenda;
+private String status_encomenda;
+
 
     /**
      * @return the id_encomenda
@@ -25,6 +27,20 @@ private int id_encomenda;
      */
     public void setId_encomenda(int id_encomenda) {
         this.id_encomenda = id_encomenda;
+    }
+
+    /**
+     * @return the status_encomenda
+     */
+    public String getStatus_encomenda() {
+        return status_encomenda;
+    }
+
+    /**
+     * @param status_encomenda the status_encomenda to set
+     */
+    public void setStatus_encomenda(String status_encomenda) {
+        this.status_encomenda = status_encomenda;
     }
     
     

@@ -35,6 +35,26 @@ public class EncomendaDAO {
      }
    }
    
+      public void buscaStatus(int cod) {
+     EncomendaModelo modelo = new EncomendaModelo();     
+     executaSQL("select * from fornecedores where id_fornecedor= '" + cod + "' ");
+     try {
+       this.resultSet.first();
+       modelo.setStatus_encomenda(this.resultSet.getString("status_encomenda"));
+ 
+     }
+     catch (SQLException ex)
+     {
+       Logger.getLogger(CriaConexao.class.getName()).log(Level.SEVERE, null, ex);
+     }
+   }
+   
+   
+   
+   
+   
+   
+   
  }
 
 

@@ -18,11 +18,12 @@
         <div class="box col-md-12">
                       <h3>Resultado do Rastreio</h3>   
                <%
-                   CharSequence pesq = request.getParameter("pesquisa");
+                   
+                   int pesq = Integer.parseInt(request.getParameter("pesquisa"));
                    int resultados= 0;
                                               
                                             try{ 
-                                            encomendadao.executaSQL("select * from encomenda where id_encomenda = '"+ pesq + "'");
+                                            encomendadao.buscaNome(pesq);
         
             while (encomendadao.resultSet.next()){
             resultados++;
