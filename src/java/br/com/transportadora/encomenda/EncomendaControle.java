@@ -66,7 +66,33 @@ public class EncomendaControle extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
              {
+      response.setContentType("text/html;charset=UTF-8");
+       try (PrintWriter out = response.getWriter()) {
+
+      int id = Integer.parseInt(request.getParameter("id"));
       
+      
+      String  acao = request.getParameter("acao");
+      
+      EncomendaModelo mod = new EncomendaModelo();
+
+      mod.setId_encomenda(id);
+
+      
+      
+      
+      EncomendaDAO dao = new EncomendaDAO();   
+      
+      if(acao.equals("rastrear")) {
+          
+          dao.buscaStatus(id);
+          response.sendRedirect("resultado_rastreio.jsp");
+          out.println("<h1>Sua encomenda está:"+ mod.getStatus_encomenda() + " </h1>");
+          out.println("<a href=index.jsp>Voltar para a Pagina Inicial</a>");
+          
+      }
+      
+       } 
     }
 
     /**

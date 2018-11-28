@@ -16,9 +16,9 @@
         <h1>Rastreiamento de Encomenda</h1>
         <div>
 
-            <form action="busca_produtoview.jsp"  >
+            <form action="EncomendaControle.do" method="get" >
 
-                <input type="text"  name="pesquisa" placeholder="Codigo da encomenda">
+                <input type="text"  name="id" placeholder="Codigo da encomenda">
                 <span>
 
                     

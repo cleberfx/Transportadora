@@ -37,7 +37,7 @@ public class EncomendaDAO {
    
       public void buscaStatus(int cod) {
      EncomendaModelo modelo = new EncomendaModelo();     
-     executaSQL("select * from fornecedores where id_fornecedor= '" + cod + "' ");
+     executaSQL("select * from encomenda where id_encomenda= '" + cod + "' ");
      try {
        this.resultSet.first();
        modelo.setStatus_encomenda(this.resultSet.getString("status_encomenda"));
