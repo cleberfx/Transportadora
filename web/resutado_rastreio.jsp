@@ -6,7 +6,7 @@
 
 
 <%@page contentType="text/html; charset=ISO-8859-1"  pageEncoding="UTF-8"%>
-<jsp:useBean id="produtodao" class="br.com.fashionspoint.produto.ProdutoDAO" scope="session"></jsp:useBean>
+<jsp:useBean id="encomendadao" class="br.com.transportadora.encomenda.EncomendaDAO" scope="session"></jsp:useBean>
 
 <!DOCTYPE html>
 <html>
@@ -16,15 +16,15 @@
     </head>
     <body>
         <div class="box col-md-12">
-                      <h3>Resultados da Pesquisa</h3>   
+                      <h3>Resultado rastreio</h3>   
                <%
                    CharSequence pesq = request.getParameter("pesquisa");
                    int resultados= 0;
                                               
                                             try{ 
-                                            produtodao.executaSQL("select * from produtos where nome_produto like '%" + pesq + "%' ");
+                                            encomendadao.executaSQL("select * from encomenda where id_encomenda = '"+ pesq + "'");
         
-            while (produtodao.resultSet.next()){
+            while (encomendadao.resultSet.next()){
             resultados++;
             
                 %>
