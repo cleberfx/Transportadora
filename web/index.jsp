@@ -16,13 +16,13 @@
         <h1>Rastreiamento de Encomenda</h1>
         <div>
 
-            <form action="EncomendaControle.do" method="get" >
+            <form action="resultado_rastreio.jsp" >
 
                 <input type="text"  name="id" placeholder="Codigo da encomenda">
                 <span>
 
-                    
-<button type="submit" name="acao" value="rastrear"  id="rastrear" >Rastreie</button>
+
+                    <button type="submit" name="acao" value="rastrear"  id="rastrear" >Rastreie</button>
                 </span>
 
             </form>

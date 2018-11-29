@@ -10,10 +10,9 @@ package br.com.transportadora.encomenda;
  * @author cleber
  */
 public class EncomendaModelo {
-    
-private int id_encomenda;
-private String status_encomenda;
 
+    private int id_encomenda;
+    private String status_encomenda;
 
     /**
      * @return the id_encomenda
@@ -42,8 +41,5 @@ private String status_encomenda;
     public void setStatus_encomenda(String status_encomenda) {
         this.status_encomenda = status_encomenda;
     }
-    
-    
-    
-  
+
 }
