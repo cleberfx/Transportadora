@@ -19,24 +19,28 @@
         <body>
             <div>
                 <h3>Resultado do Rastreio</h3>   
-            <%--           
-           <%
-                    int id = Integer.parseInt(request.getParameter("id"));
-                    
-                                               
-                                             try{ 
-                                             enc_dao.executaSQL("select * from encomenda where id_encomenda = '" + id + "' ");
-         
-             enc_dao.resultSet.next(); 
-          %>
-          
-          <p >Sua encomenda está: <%=enc_dao.resultSet.getString("status_encomenda")%></p>
-          
-         <%   
 
-            } 
-catch (SQLException ex) {out.print("Erro" + ex);}        
-%>--%> 
+            <%
+                String id = request.getParameter("id");
+               if(id != null ){
+                try {
+                    int id_enc = Integer.parseInt(id);
+                    
+                
+                    enc_dao.executaSQL("select * from encomenda where id_encomenda = '" + id_enc + "' ");
+
+                    enc_dao.resultSet.next();
+            %>
+
+            <p >Sua encomenda está: <%enc_dao.resultSet.getString("status_encomenda");
+            
+                
+                %></p><%
+
+                } catch (SQLException ex) {
+                    out.print("Encomenda Inexistente");
+                }}else{out.println(%><p>Insira um numero</p><%);}
+            %>
 
 
             <br>
