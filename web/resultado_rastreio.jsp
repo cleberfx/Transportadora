@@ -21,19 +21,16 @@
                 <h3>Resultado do Rastreio</h3>   
 
             <%
-                String id = request.getParameter("id");
+                Long id = Long.parseLong(request.getParameter("id"));
                 try {
-                    if (id == null) {
-                        out.println("<p>Insira um Codigo Valido:</p>");
+                    
+                        
 
-                    } else {
-                        int id_enc = Integer.parseInt(id);
-
-                        enc_dao.executaSQL("select * from encomenda where id_encomenda = '" + id_enc + "' ");
+                        enc_dao.executaSQL("select * from encomenda where id_encomenda = '" + id + "' ");
 
                         enc_dao.resultSet.next();
                         out.println("<p >Sua encomenda está:" + enc_dao.resultSet.getString("status_encomenda") + "</p>");
-                    }
+                    
                 } catch (SQLException ex) {
                     out.println("<p>Insira um Codigo Valido:</p>");
                 }

@@ -18,7 +18,7 @@
 
             <form action="resultado_rastreio.jsp" >
 
-                <input type="text"  name="id" placeholder="Codigo da encomenda" required="" >
+                <input type="number"  name="id" placeholder="Codigo da encomenda" max="999999999999999999" required="" >
                 <span>
 
 
