@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html; charset=ISO-8859-1"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Transportadora</title>
@@ -18,7 +18,7 @@
 
             <form action="resultado_rastreio.jsp" >
 
-                <input type="text"  name="id" placeholder="Codigo da encomenda">
+                <input type="text"  name="id" placeholder="Codigo da encomenda" required="" >
                 <span>
 
 

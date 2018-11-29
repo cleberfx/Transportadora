@@ -14,7 +14,7 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>JSP Page</title>
+            <title>Transportadora</title>
         </head>
         <body>
             <div>
@@ -22,24 +22,23 @@
 
             <%
                 String id = request.getParameter("id");
-               if(id != null ){
                 try {
-                    int id_enc = Integer.parseInt(id);
-                    
-                
-                    enc_dao.executaSQL("select * from encomenda where id_encomenda = '" + id_enc + "' ");
+                    if (id == null) {
+                        out.println("<p>Insira um Codigo Valido:</p>");
 
-                    enc_dao.resultSet.next();
-            %>
+                    } else {
+                        int id_enc = Integer.parseInt(id);
 
-            <p >Sua encomenda está: <%enc_dao.resultSet.getString("status_encomenda");
-            
-                
-                %></p><%
+                        enc_dao.executaSQL("select * from encomenda where id_encomenda = '" + id_enc + "' ");
 
+                        enc_dao.resultSet.next();
+                        out.println("<p >Sua encomenda está:" + enc_dao.resultSet.getString("status_encomenda") + "</p>");
+                    }
                 } catch (SQLException ex) {
-                    out.print("Encomenda Inexistente");
-                }}else{out.println(%><p>Insira um numero</p><%);}
+                    out.println("<p>Insira um Codigo Valido:</p>");
+                }
+
+
             %>
 
 
