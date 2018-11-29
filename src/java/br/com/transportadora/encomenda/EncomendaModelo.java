@@ -11,22 +11,10 @@ package br.com.transportadora.encomenda;
  */
 public class EncomendaModelo {
 
-    private int id_encomenda;
+    private long id_encomenda;
     private String status_encomenda;
 
-    /**
-     * @return the id_encomenda
-     */
-    public int getId_encomenda() {
-        return id_encomenda;
-    }
-
-    /**
-     * @param id_encomenda the id_encomenda to set
-     */
-    public void setId_encomenda(int id_encomenda) {
-        this.id_encomenda = id_encomenda;
-    }
+    
 
     /**
      * @return the status_encomenda
@@ -40,6 +28,20 @@ public class EncomendaModelo {
      */
     public void setStatus_encomenda(String status_encomenda) {
         this.status_encomenda = status_encomenda;
+    }
+
+    /**
+     * @return the id_encomenda
+     */
+    public long getId_encomenda() {
+        return id_encomenda;
+    }
+
+    /**
+     * @param id_encomenda the id_encomenda to set
+     */
+    public void setId_encomenda(long id_encomenda) {
+        this.id_encomenda = id_encomenda;
     }
 
 }

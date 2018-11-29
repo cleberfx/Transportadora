@@ -18,11 +18,11 @@
 
             <form action="resultado_rastreio.jsp" >
 
-                <input type="number"  name="id" placeholder="Codigo da encomenda" max="999999999999999999" required="" >
+                <input type="number"  name="id" placeholder="Código da Encomenda" max="999999999999999999" required="" >
                 <span>
 
 
-                    <button type="submit" name="acao" value="rastrear"  id="rastrear" >Rastreie</button>
+                    <button type="submit" name="acao" value="rastrear"  id="rastrear" >Rastreie!</button>
                 </span>
 
             </form>

@@ -8,7 +8,7 @@
 <%@page import="java.sql.SQLException"%>
 <%@page contentType="text/html; charset=ISO-8859-1"  pageEncoding="UTF-8"%>
 <jsp:useBean id="enc_dao" class="br.com.transportadora.encomenda.EncomendaDAO" scope="session"></jsp:useBean>
-
+<jsp:useBean id="enc_mod" class="br.com.transportadora.encomenda.EncomendaModelo" scope="session"></jsp:useBean>
 
     <!DOCTYPE html>
     <html>
@@ -18,21 +18,20 @@
         </head>
         <body>
             <div>
-                <h3>Resultado do Rastreio</h3>   
+                <h1>Resultado do Rastreio</h1>   
 
             <%
-                Long id = Long.parseLong(request.getParameter("id"));
+                long id = Long.parseLong(request.getParameter("id"));
+                enc_mod.setId_encomenda(id);
                 try {
-                    
-                        
 
-                        enc_dao.executaSQL("select * from encomenda where id_encomenda = '" + id + "' ");
+                    enc_dao.executaSQL("select * from encomenda where id_encomenda = '" + enc_mod.getId_encomenda() + "' ");
 
-                        enc_dao.resultSet.next();
-                        out.println("<p >Sua encomenda está:" + enc_dao.resultSet.getString("status_encomenda") + "</p>");
-                    
+                    enc_dao.resultSet.next();
+                    enc_mod.setStatus_encomenda(enc_dao.resultSet.getString("status_encomenda"));
+                    out.println("<p >Sua encomenda está: " + enc_mod.getStatus_encomenda() + "</p>");
                 } catch (SQLException ex) {
-                    out.println("<p>Insira um Codigo Valido:</p>");
+                    out.println("<p>Insira um Código Válido</p>");
                 }
 
 
